@@ -1,0 +1,44 @@
+
+char degree=176;
+
+void setup()
+{
+  pinMode(A0,INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+	
+  int temp = analogRead(A0);
+  
+  float voltage = (temp*5)/1024;
+  float milivolt = voltage*1000;
+  float celsius = (milivolt-500)/10;
+  float fahrenheit = (celsius*9/5)+32;
+  
+  Serial.print("10 bit number : " );
+  Serial.println(temp);
+  
+  
+  Serial.print("voltage : " );
+  Serial.print(voltage);
+  
+  Serial.print("milivolt : " );
+  Serial.print(milivolt);
+  Serial.println("V");
+  
+  
+  
+  Serial.print("celsius : " );
+  Serial.print(celsius);
+  Serial.println(degree);
+  
+  
+  
+  Serial.print("fahrenheit : " );
+  Serial.print(fahrenheit);
+  
+   delay(1000);
+  	
+}

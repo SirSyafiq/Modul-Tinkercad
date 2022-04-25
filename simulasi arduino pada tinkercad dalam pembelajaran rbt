@@ -1,4 +1,8 @@
 void setup() {
-  pin Mode (12, OUTPUT);
-  }
-  
+  pinMode(12, OUTPUT);
+}
+
+void loop(){
+	tone(12, 220, 100);
+    delay(200);
+}

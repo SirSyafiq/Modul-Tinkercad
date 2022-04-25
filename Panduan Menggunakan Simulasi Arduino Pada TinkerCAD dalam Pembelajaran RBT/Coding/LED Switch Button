@@ -1,0 +1,36 @@
+#include<avr/io.h>
+#include<util/delay.h>
+#include<avr/interrupt.h>
+#define MASK_VAR 1
+void init_f();
+int main (void)
+{
+  init_f();
+  PCICR|=(MASK_VAR<<PCIE2);
+  SREG|=(MASK_VAR<<PD7);
+  PCMSK2|=(MASK_VAR<<PCINT23);
+  
+  while(1)
+  {
+   
+  }
+ return 0; 
+} //main ends
+
+void init_f()
+{
+  DDRD |= (MASK_VAR<<PD4); //LED
+  DDRD&= ~(MASK_VAR<<PD7); //Switch
+  
+  PORTD &= ~(MASK_VAR<<PD4);
+  PORTD&=~(MASK_VAR<<PD7);
+           
+}
+
+ISR(PCINT2_vect)
+{
+  PORTD^=(MASK_VAR<<PD4);
+  _delay_ms(200);
+}
+           
+           

@@ -1,6 +1,6 @@
-#define LEDR 1
-#define LEDG 2
-#define LEDB 3
+#define LEDR 2
+#define LEDG 3
+#define LEDB 4
 
 void setup() {                
   pinMode(LEDR, OUTPUT);

@@ -1,0 +1,37 @@
+
+const int temperaturePin = 0;
+int buzzer = 12; 
+void setup()
+{
+
+pinMode(buzzer, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(2, OUTPUT);
+}
+
+void loop()
+{
+  float voltage, degreesC;
+voltage = getVoltage(temperaturePin);
+degreesC = (voltage - 0.5) * 100.0;
+
+  if(degreesC>40)
+  {
+  digitalWrite(buzzer, LOW);    
+  delay(300);  //delay half a second           
+  tone(12, 10000, 100);
+  digitalWrite(4, HIGH);
+  delay(300);
+  digitalWrite(3, HIGH);
+  delay(300);
+  digitalWrite(2, HIGH);
+  delay(300);
+  }
+}
+
+float getVoltage(int pin)
+{
+  
+  return (analogRead(pin) * 0.004882814);
+}

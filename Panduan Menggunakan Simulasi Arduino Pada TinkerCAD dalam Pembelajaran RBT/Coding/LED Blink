@@ -1,8 +1,16 @@
-void setup() {
-  pinMode(12, OUTPUT);
+// variables
+int led = 2;
+
+// basic functions
+void setup()
+{
+  pinMode(led,OUTPUT);
 }
 
-void loop(){
-	tone(12, 220, 100);
-    delay(200);
+void loop()
+{
+  digitalWrite(led, HIGH);   
+  delay(1000);               
+  digitalWrite(led, LOW);    
+  delay(1000);               
 }
